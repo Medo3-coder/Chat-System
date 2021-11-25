@@ -36,11 +36,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/chat', function () {
     return Inertia::render('Chat/Container');
 })->name('chat');
 
-// return rooms
-Route::middleware('auth:sanctum')->get('/chat/rooms',[ChatController::class,'rooms']);
-
-// return messages
-Route::middleware('auth:sanctum')->get('/chat/room/{roomId}/messages',[ChatController::class,'messages']);
-
-//create new message
-Route::middleware('auth:sanctum')->post('/chat/room/{roomId}/message',[ChatController::class,'newMessage']);
+// Get all rooms
+Route::middleware('auth:sanctum')->get('/chat/rooms', [ChatController::class, 'rooms']);
+// Get all messages for a specific room
+Route::middleware('auth:sanctum')->get('/chat/room/{roomId}/messages', [ChatController::class, 'messages']);
+// Create new message in a room
+Route::middleware('auth:sanctum')->post('/chat/room/{roomId}/message', [ChatController::class, 'newMessage']);
