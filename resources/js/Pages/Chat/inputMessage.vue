@@ -35,6 +35,7 @@ export default {
 
    methods: {
         sendMessage() {
+             // if the message string is empty, don't allow send(returns nothing)
             if(this.message == ' '){
                 return ;
             }
@@ -45,8 +46,9 @@ export default {
                 if(response.status == 201)
                 {
                     this.message = '';
+                     // emit an event to let the parent component know that the messgae was sent
                     this.$emit('messagesent');
-                    // $emit lets us emit, or send, custom events from a child component to its parent.
+
                 }
             })
             .catch(error => {
