@@ -1,4 +1,13 @@
 const mix = require('laravel-mix');
+require('dotenv').config();
+
+/*
+dotenv :  allows you to separate secrets from your source code.
+This is useful in a collaborative environment (e.g., work, or open source)
+ where you may not want to share your database login
+credentials with other people. Instead, you can share the source code while allowing other people to create their own . env file
+
+*/
 
 /*
  |--------------------------------------------------------------------------
